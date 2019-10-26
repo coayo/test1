@@ -27,6 +27,7 @@ public static class MatExtension
         var target = CreateElement(mat.Depth, value);
         Marshal.Copy(target, 0, mat.DataPointer + (row * mat.Cols + col) * mat.ElementSize, 1);
     }
+
     private static dynamic CreateElement(DepthType depthType, dynamic value)
     {
         var element = CreateElement(depthType);
@@ -42,7 +43,8 @@ public static class MatExtension
         }
         if (depthType == DepthType.Cv8U)
         {
-            return new byte[1];
+           // return new ushort[1];
+           return new byte[1];
         }
         if (depthType == DepthType.Cv16S)
         {
